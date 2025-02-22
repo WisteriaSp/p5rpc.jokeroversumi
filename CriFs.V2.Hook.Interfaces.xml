@@ -1,0 +1,150 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CriFs.V2.Hook.Interfaces</name>
+    </assembly>
+    <members>
+        <member name="T:CriFs.V2.Hook.Interfaces.ICriFsRedirectorApi">
+            <summary>
+            API for controlling the behaviour of the redirector.
+            </summary>
+        </member>
+        <member name="M:CriFs.V2.Hook.Interfaces.ICriFsRedirectorApi.AddProbingPath(System.String)">
+            <summary>
+            Adds a path (relative to other mods' main folder) that is used for probing for mod files.
+            </summary>
+        </member>
+        <member name="M:CriFs.V2.Hook.Interfaces.ICriFsRedirectorApi.AddUnbindCallback(System.Action{CriFs.V2.Hook.Interfaces.ICriFsRedirectorApi.UnbindContext})">
+            <summary>
+            Adds a method that is fired when the binder performs an unbind (e.g. Hot Reload).
+            </summary>
+            <param name="callback">The callback method to fire.</param>
+        </member>
+        <member name="M:CriFs.V2.Hook.Interfaces.ICriFsRedirectorApi.AddBindCallback(System.Action{CriFs.V2.Hook.Interfaces.ICriFsRedirectorApi.BindContext})">
+            <summary>
+            Adds a method that is fired when the binder bind is about to be created.
+            </summary>
+            <param name="callback">Method which contains the binding information.</param>
+        </member>
+        <member name="M:CriFs.V2.Hook.Interfaces.ICriFsRedirectorApi.GenerateBindingDirectory(System.String)">
+            <summary>
+            Generates a directory that can be used for binding custom in <see cref="M:CriFs.V2.Hook.Interfaces.ICriFsRedirectorApi.AddBindCallback(System.Action{CriFs.V2.Hook.Interfaces.ICriFsRedirectorApi.BindContext})"/> callback.  
+            Guarantees directory will be unique for this process (thus allowing multiple instance of application).  
+            Guarantees directories related to dead processes/previous game runs will be cleaned up.  
+            </summary>
+            <param name="baseDirectory">The directory where your mod stores its binds, preferably `Bind` in mod config dir.</param>
+        </member>
+        <member name="M:CriFs.V2.Hook.Interfaces.ICriFsRedirectorApi.GetCpkFilesInGameDir">
+            <summary>
+            Returns list of all CPK files in game directory.
+            This list is cached, used to speed up rebuilds.
+            </summary>
+        </member>
+        <member name="M:CriFs.V2.Hook.Interfaces.ICriFsRedirectorApi.GetCpkFilesCached(System.String)">
+            <summary>
+            Gets the file contents of a given CPK file.
+            Data can be read from this CPK file by using <see cref="M:CriFsV2Lib.Definitions.ICriFsLib.CreateCpkReader(System.IO.Stream,System.Boolean,CriFsV2Lib.Definitions.InPlaceDecryptionFunction)"/> with FileStream.
+            
+            This is an optimisation/speedup to prevent repeat parsing when multiple mods need to extract files.
+            This cache is cleared after each rebuild.
+            </summary>
+        </member>
+        <member name="M:CriFs.V2.Hook.Interfaces.ICriFsRedirectorApi.GetCriFsLib">
+            <summary>
+            Gets an instance of the library used to read CPK files.
+            </summary>
+        </member>
+        <member name="M:CriFs.V2.Hook.Interfaces.ICriFsRedirectorApi.SetMaxFilesMultiplier(System.Int32)">
+            <summary>
+            Sets a multiplier for the maximum number of files that can be bound.
+            This should generally by 2x the number of binders the game uses.
+            
+            This must be set before CriFsHook initialises otherwise it will do nothing (i.e. before mod loader is initialised)
+            </summary>
+            <param name="multiplier">The multiplier for the maximum number of files that can be bound</param>
+        </member>
+        <member name="T:CriFs.V2.Hook.Interfaces.ICriFsRedirectorApi.UnbindContext">
+            <summary>
+            The context used for binding operations.
+            </summary>
+        </member>
+        <member name="P:CriFs.V2.Hook.Interfaces.ICriFsRedirectorApi.UnbindContext.BindDirectory">
+            <summary>
+            The directory that is getting unbound.
+            </summary>
+        </member>
+        <member name="T:CriFs.V2.Hook.Interfaces.ICriFsRedirectorApi.BindContext">
+            <summary>
+            The context used for binding operations.
+            </summary>
+        </member>
+        <member name="P:CriFs.V2.Hook.Interfaces.ICriFsRedirectorApi.BindContext.BindDirectory">
+            <summary>
+            The directory that is getting bound.
+            </summary>
+        </member>
+        <member name="P:CriFs.V2.Hook.Interfaces.ICriFsRedirectorApi.BindContext.RelativePathToFileMap">
+            <summary>
+            Contains list of all files that will be bound.
+            </summary>
+        </member>
+        <member name="T:CriFs.V2.Hook.Interfaces.ICriFsRedirectorApi.BindFileInfo">
+            <summary>
+            Information about an individual file used in binding context.
+            </summary>
+        </member>
+        <member name="F:CriFs.V2.Hook.Interfaces.ICriFsRedirectorApi.BindFileInfo.FullPath">
+            <summary>
+            Full path to the file.
+            </summary>
+        </member>
+        <member name="F:CriFs.V2.Hook.Interfaces.ICriFsRedirectorApi.BindFileInfo.LastWriteTime">
+            <summary>
+            Last time file was written to.
+            </summary>
+        </member>
+        <member name="F:CriFs.V2.Hook.Interfaces.ICriFsRedirectorApi.BindFileInfo.ModId">
+            <summary>
+            ID of the mod where the file originates from.
+            </summary>
+        </member>
+        <member name="T:CriFs.V2.Hook.Interfaces.Structs.CachedCpkFile">
+            <summary>
+            A <see cref="T:CriFsV2Lib.Definitions.Structs.CpkFile"/> obtained from cache.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:CriFs.V2.Hook.Interfaces.Structs.CachedCpkFile.FullPath" -->
+        <member name="F:CriFs.V2.Hook.Interfaces.Structs.CachedCpkFile.File">
+            <summary>
+            The CPK file from CPK library.
+            </summary>
+        </member>
+        <member name="T:CriFs.V2.Hook.Interfaces.Structs.CpkCacheEntry">
+            <summary>
+            Represents an individual entry storing cached data for each CPK.
+            </summary>
+        </member>
+        <member name="P:CriFs.V2.Hook.Interfaces.Structs.CpkCacheEntry.Files">
+            <summary>
+            The files stores for this CPK.
+            </summary>
+        </member>
+        <member name="P:CriFs.V2.Hook.Interfaces.Structs.CpkCacheEntry.LastModified">
+            <summary>
+            Last time CPK was modified, can be used to invalidate custom user cache.
+            </summary>
+        </member>
+        <member name="P:CriFs.V2.Hook.Interfaces.Structs.CpkCacheEntry.FilesByPath">
+            <summary>
+            Contains a map of all relative paths in CPK to corresponding index in <see cref="P:CriFs.V2.Hook.Interfaces.Structs.CpkCacheEntry.Files"/> array.
+            Directory separators normalized to <see cref="F:System.IO.Path.DirectorySeparatorChar"/>.
+            </summary>
+        </member>
+        <member name="P:CriFs.V2.Hook.Interfaces.Structs.CpkCacheEntry.FilesByFileName">
+            <summary>
+            Contains a map of all file names corresponding to index in <see cref="P:CriFs.V2.Hook.Interfaces.Structs.CpkCacheEntry.Files"/> array.
+            For fast lookup.
+            </summary>
+        </member>
+    </members>
+</doc>
