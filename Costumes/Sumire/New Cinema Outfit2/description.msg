@@ -1,0 +1,1 @@
+[f 2 1]The form that [f 4 31 10 1][n]took when he entered[n]the cinema labyrinth.[n][e]

@@ -1,0 +1,1 @@
+[f 0 5 65278][f 2 1]The phantom thief outfit[n]created by a rebellious spirit.[n][e]

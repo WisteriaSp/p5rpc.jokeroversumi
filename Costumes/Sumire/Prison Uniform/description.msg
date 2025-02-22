@@ -1,1 +1,1 @@
-[f 0 5 65278][f 2 1][f 4 2]'s inmate clothing.[n][e]
+[f 0 5 65278][f 4 31 10 1]'s inmate clothing.[n][e]
