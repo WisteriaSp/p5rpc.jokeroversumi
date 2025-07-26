@@ -11,8 +11,12 @@
           "BF.File.Emulator.Interfaces": "1.0.0",
           "BMD.File.Emulator.Interfaces": "1.0.0",
           "CriFs.V2.Hook.Interfaces": "1.0.0",
+          "FileEmulationFramework.Interfaces": "2.0.0",
+          "P5R.CostumeFramework.Interfaces": "1.0.0",
+          "PAK.Stream.Emulator.Interfaces": "1.0.0",
           "Reloaded.Mod.Interfaces": "2.4.0",
-          "Reloaded.SharedLib.Hooks": "1.9.0"
+          "Reloaded.SharedLib.Hooks": "1.9.0",
+          "SPD.File.Emulator.Interfaces": "1.0.0"
         },
         "runtime": {
           "jokerovervioletconfig.dll": {}
@@ -23,6 +27,22 @@
           "lib/net7.0/CriFsV2Lib.Definitions.dll": {
             "assemblyVersion": "1.1.0.0",
             "fileVersion": "1.1.0.0"
+          }
+        }
+      },
+      "FileEmulationFramework.Interfaces/2.0.0": {
+        "runtime": {
+          "lib/net5.0/FileEmulationFramework.Interfaces.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.0.0.0"
+          }
+        }
+      },
+      "P5R.CostumeFramework.Interfaces/1.0.0": {
+        "runtime": {
+          "lib/net7.0/P5R.CostumeFramework.Interfaces.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
           }
         }
       },
@@ -72,6 +92,22 @@
             "fileVersion": "1.0.0.0"
           }
         }
+      },
+      "PAK.Stream.Emulator.Interfaces/1.0.0": {
+        "runtime": {
+          "PAK.Stream.Emulator.Interfaces.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "SPD.File.Emulator.Interfaces/1.0.0": {
+        "runtime": {
+          "SPD.File.Emulator.Interfaces.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
       }
     }
   },
@@ -87,6 +123,20 @@
       "sha512": "sha512-hPvJ4DR16lVSYHSddUsMTUQLajCALhNA+GDfAY0VMa4xSvBOEbZeCuj2tYO8GqeQMyiosL0/aRaFZ2OgFefRKA==",
       "path": "crifsv2lib.definitions/1.1.0",
       "hashPath": "crifsv2lib.definitions.1.1.0.nupkg.sha512"
+    },
+    "FileEmulationFramework.Interfaces/2.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-JkzwKDcsC1MpWRKlZxLliXQxDP7vYtu/pbNNQGM935zMX6oEb1of83NM4LlOhG7Kbe0gkLKlR73ueVg8yGGWcg==",
+      "path": "fileemulationframework.interfaces/2.0.0",
+      "hashPath": "fileemulationframework.interfaces.2.0.0.nupkg.sha512"
+    },
+    "P5R.CostumeFramework.Interfaces/1.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-nRPSvo+iqBnZTmDlwFtlfxFqUt3p2mNX2tTx5BcR6UXYGRwqrwbcbwKjRwfAoD62OaOgV4jf6WNxGkxzIkhrQA==",
+      "path": "p5r.costumeframework.interfaces/1.0.0",
+      "hashPath": "p5r.costumeframework.interfaces.1.0.0.nupkg.sha512"
     },
     "Reloaded.Hooks.Definitions/1.11.0": {
       "type": "package",
@@ -120,6 +170,16 @@
       "sha512": ""
     },
     "CriFs.V2.Hook.Interfaces/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "PAK.Stream.Emulator.Interfaces/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SPD.File.Emulator.Interfaces/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

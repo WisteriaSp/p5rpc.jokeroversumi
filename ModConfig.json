@@ -214,10 +214,12 @@
   "ModDependencies": [
     "crifs.v2.hook",
     "P5R.CostumeFramework",
+    "p5rpc.modloader",
     "reloaded.sharedlib.hooks",
     "reloaded.universal.fileemulationframework.bf",
     "reloaded.universal.fileemulationframework.bmd",
     "reloaded.universal.fileemulationframework.pak",
+    "reloaded.universal.fileemulationframework.spd",
     "Ryo.Reloaded"
   ],
   "OptionalDependencies": [],
